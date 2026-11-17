@@ -7,15 +7,18 @@ depoimentos e formulário de contato.
 ## Tecnologias
 - HTML5 + CSS3 (glassmorphism, dark mode, responsivo)
 - JavaScript vanilla (sem dependências)
-- Servidor de desenvolvimento: Node.js (`server.js`)
+- Site 100% estático — hospede em qualquer serviço de arquivos estáticos
 
-## Como rodar localmente
+## Como visualizar localmente
+Opção 1 — abra diretamente o arquivo `index.html` no navegador.
+
+Opção 2 — sirva com qualquer servidor estático:
 ```bash
-npm start
+npx serve .
 # ou
-node server.js
+python -m http.server 3000
 ```
-Abra http://localhost:3000/
+Acesa em http://localhost:3000/ (ou a porta indicada).
 
 ## Simulador
 Cálculo pelo sistema Price (parcelas fixas):
@@ -31,9 +34,12 @@ O envio usa [Formspree](https://formspree.io). Para ativar:
 Sem o endpoint, o formulário funciona em modo demonstração (validação + feedback visual).
 
 ## Imagens
-As ilustrações dos imóveis são SVGs gerados por `tools/gen-imagens.js` (vetoriais, alta resolução).
-Para regerar: `node tools/gen-imagens.js`.
+As ilustrações dos imóveis são SVGs vetoriais de alta resolução gerados
+especialmente para o projeto (pasta `assets/images/`).
 
 ## Deploy
 - **Vercel**: import este repositório no dashboard da Vercel (framework: Other / Static).
 - O `vercel.json` já configura cache dos assets.
+
+## Licença
+Uso reservado — projeto interno OmniReal.
