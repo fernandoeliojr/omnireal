@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniReal — O Futuro de Morar Bem</title>
+    <meta name="description" content="OmniReal: imóveis de alto padrão com arquitetura inteligente, luxo futurista e conforto inigualável. Explore o catálogo e simule seu financiamento.">
+    <meta name="theme-color" content="#0a0a0c">
+    <meta property="og:title" content="OmniReal — O Futuro de Morar Bem">
+    <meta property="og:description" content="Arquitetura inteligente, luxo futurista e conforto inigualável. Simule seu financiamento e fale com um consultor.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏙️%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+    <nav class="glass">
+        <div class="logo">OmniReal</div>
+        <button id="nav-toggle" class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+        <ul>
+            <li><a href="#hero">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#imoveis">Imóveis</a></li>
+            <li><a href="#simulador">Simulador</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge-pill">Destaque 2026</span>
+            <h1>O Futuro de Morar Bem Começa Aqui</h1>
+            <p>Arquitetura inteligente, luxo futurista e conforto inigualável. Encontre o imóvel dos seus sonhos com a curadoria OmniReal.</p>
+            <div class="hero-actions">
+                <button id="btn-explorar" class="btn-glow">Explorar Catálogo</button>
+                <a href="#simulador" class="btn-secondary">Simular Financiamento</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="glass">
+        <div class="sobre-wrapper">
+            <div class="sobre-visual">
+                <img src="assets/images/sobre.svg" alt="Arquitetura conceitual futurista OmniReal" loading="lazy">
+            </div>
+            <div class="sobre-texto">
+                <h2>Por que a OmniReal?</h2>
+                <p class="section-sub">Unimos tecnologia, design e localização para entregar imóveis que antecipam o amanhã.</p>
+                <div class="features">
+                    <div class="feature">
+                        <h3>🏗️ Arquitetura Inteligente</h3>
+                        <p>Projetos com automação integrada, eficiência energética e materiais sustentáveis.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>📍 Localização Premium</h3>
+                        <p>Carteira curada nas melhores regiões metropolitanas e litorâneas do Brasil.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🤝 Consultoria Dedicada</h3>
+                        <p>Um consultor exclusivo do primeiro contato às chaves, com simulação personalizada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="imoveis">
+        <h2>Imóveis de Alto Padrão</h2>
+        <div class="filters" role="group" aria-label="Filtrar imóveis por tipo">
+            <button data-tipo="all" class="active" onclick="filterImoveis('all')">Todos</button>
+            <button data-tipo="casa" onclick="filterImoveis('casa')">Casas</button>
+            <button data-tipo="apto" onclick="filterImoveis('apto')">Apartamentos</button>
+        </div>
+        <div class="grid" id="imoveis-grid">
+            <!-- Inserido via JS -->
+        </div>
+    </section>
+
+    <section id="simulador" class="glass">
+        <h2>Simulador de Financiamento</h2>
+        <p class="section-sub">Simulação pelo sistema Price (parcelas fixas). Valores aproximados, sem tarifas.</p>
+        <div class="sim-container">
+            <label for="valor">Valor do Imóvel (R$)</label>
+            <input type="number" id="valor" placeholder="Ex: 800000" min="1" step="1000">
+            <label for="entrada">Entrada (R$)</label>
+            <input type="number" id="entrada" placeholder="Ex: 160000" min="0" step="1000">
+            <label for="taxa">Taxa de juros mensal (%)</label>
+            <input type="number" id="taxa" value="0.9" min="0" max="100" step="0.01">
+            <label for="prazo">Prazo</label>
+            <select id="prazo">
+                <option value="120">120 parcelas (10 anos)</option>
+                <option value="240" selected>240 parcelas (20 anos)</option>
+                <option value="360">360 parcelas (30 anos)</option>
+            </select>
+            <button onclick="simular()" class="btn-glow">Calcular Parcelas</button>
+            <div id="resultado-simulacao" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="glass">
+        <h2>O Que Dizem Sobre Nós</h2>
+        <div class="depoimentos">
+            <blockquote>
+                <p>"Compramos nossa mansão em 30 dias, com todo o processo digital e transparente."</p>
+                <footer>— Marina S., São Paulo</footer>
+            </blockquote>
+            <blockquote>
+                <p>"O simulador online nos deu previsibilidade total antes de visitar o imóvel."</p>
+                <footer>— Carlos e Ana, Rio de Janeiro</footer>
+            </blockquote>
+            <blockquote>
+                <p>"Atendimento impecável do primeiro clique até a entrega das chaves."</p>
+                <footer>— Roberto M., Curitiba</footer>
+            </blockquote>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Fale com um Consultor</h2>
+        <form id="contact-form" novalidate>
+            <label for="nome">Nome *</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+            <label for="mensagem">Mensagem *</label>
+            <textarea id="mensagem" name="mensagem" rows="4" placeholder="Como podemos ajudar?" required></textarea>
+            <button type="submit" class="btn-glow">Enviar</button>
+            <p id="contato-msg" class="form-msg" aria-live="polite"></p>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <strong>OmniReal</strong>
+                <p>O futuro de morar bem.</p>
+            </div>
+            <div>
+                <strong>Contato</strong>
+                <p>contato@omnireal.example<br>(11) 4002-8922</p>
+            </div>
+            <div>
+                <strong>Redes</strong>
+                <p><a href="#">Instagram</a> · <a href="#">LinkedIn</a> · <a href="#">YouTube</a></p>
+            </div>
+        </div>
+        <p class="copyright">CNPJ 00.000.000/0001-00 · © <span id="year">2026</span> OmniReal. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
